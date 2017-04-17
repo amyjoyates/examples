@@ -1,0 +1,29 @@
+Text in Numeric field
+Fields left blank (null)
+Very long numeric strings
+Multiple decimals and commas (eg, "4..4" and "4,,434.4.4")
+Boundary Value Analysis:
+Lower Boundary
+Lower Boundary - 1 (for decimal/float, use smaller amounts)
+Upper Boundary
+Upper Boundary + 1
+Far below the lower boundary (eg, beyond the hardware boundary value)
+Far above the upper boundary
+middle of the range
+0
+0.0
+White space, nothing else " "
+String input & other incorrect data types.
+Number with text in front or back, eg "$5.00", "4 lbs", "about 60", "50+"
+Negative numbers
++ sign with positive numbers, "+4"
+Both plus and minus sign, eg "+-4" and "-4e+30"
+Exponents of 10, both uppercase and lowercase, positive and negative eg "4e10", "-5E-10", "+6e+60", etc
+Too many "e" characters, eg "4e4e4" "4EE4"
+Impossibly large/small exponents or inappropriate ones
+Decimal values that cannot be represented in a computer
+eg, .3 + .6 == 1.0? This bug affects most hardware, so outputs that compare decimal values should allow for a degree of error.
+Integer/hardware overflow. eg, for 32-bit integers, what happens when adding 4 billion to 4 billion?
+wrong use of decimal sign and thousands separator ("," vs. ".") (MikeD)
+internationalization i18n issues: In english applications you write "12,345.67" meaning "12345.67" in german you write "12345,67" – (k3b)
+leading 0's don't make number octal (common javascript bug)
