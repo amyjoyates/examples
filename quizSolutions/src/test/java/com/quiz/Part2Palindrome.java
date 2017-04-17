@@ -9,11 +9,18 @@ public class Part2Palindrome {
     @Test
     public void VerifyingPalindromes()
     {
-        // References researched when writing this class and methods
-        // A. https://en.wiktionary.org/wiki/Appendix:English_palindromes
-        // B. StackOverflow - had some issues with loop within a loop
+        /*
+         *  References researched when writing this class and methods
+         *  A. https://en.wiktionary.org/wiki/Appendix:English_palindromes
+         *  B. StackOverflow - had some issues with loop within a loop
+         *  C. https://www.quora.com/What-is-the-most-efficient-algorithm-to-find-the-longest-palindrome-in-a-string
+         *  D. http://docs.aws.amazon.com/machine-learning/latest/dg/when-to-use-machine-learning.html
+        */
 
-        // 1) Write a program that takes a string and returns true if it’s a palindrome (do not use string reverse function).
+        /* 
+         * 1) Write a program that takes a string and returns true if it’s a palindrome 
+         *    (do not use string reverse function).
+         */
         System.out.println("--Verifying Palindromes--");
 
         Assert.assertTrue(checkToSeeIfPalindrome("abba"));
@@ -21,9 +28,24 @@ public class Part2Palindrome {
 
         System.out.println("--End Verifying Palindromes--");
 
-        //2) Provide all test cases for this palindrome use case
+        /* 
+         * 2) Provide all test cases for this palindrome use case
+         *    Standard Test Cases:
+         *    Happy Path
+         *    Negative Tests
+         *    Boundaries
+         *
+         *    Machine Learning Approach:
+         *    If we were looking at this with machine learning in mind, the following testcases would be considered labeled.
+         *       Labeled Data = data that we know the target answer
+         *    You need to collect the right kind of positive and negative data to help teach the ML
+         *    Once you have that, and any other attributes that could help the ML learn, then you can start figuring
+         *       out the algorithm you are going to need in order to find all of the possible test cases (happy path)
+         *    
+         */
         System.out.println("--Various test cases being executed, will fail if the assert is not correct--");
-
+        Assert.assertTrue(checkToSeeIfPalindrome(""));
+        Assert.assertTrue(checkToSeeIfPalindrome("tattarrattat"));
         Assert.assertFalse(checkToSeeIfPalindrome("amy")); // Verify that is not a palindrome
         Assert.assertTrue(checkToSeeIfPalindrome("racecar")); // Verify simple palindrome
         Assert.assertFalse(checkToSeeIfPalindrome("Don't nod")); // Verify using punctuation that doesn't match - ' makes this sentence false since there isn't a corresponding one in the pattern
@@ -39,9 +61,19 @@ public class Part2Palindrome {
 
         System.out.println("--End Various test cases being executed--");
 
-        //3) For a width w, how many palindromes are expected to be generated?
-        //   NOTE: Single chars/spaces are being considered palindromes 
-        //   NOTE: This does not rearrange the letters to make new palindromes - goes from left to right
+        /*
+         * 3) For a width w, how many palindromes are expected to be generated?
+         *    NOTE: Single chars/spaces are being considered palindromes 
+         *    NOTE: This does not rearrange the letters to make new palindromes - goes from left to right
+         * 
+         * Using a standard approach, looping through each char that is part of the string, and comparing it
+         *    to the opposite end, gives us the various combinations possible for a given string.
+         *    
+         * However, if we want to find all of the strings and their possible combinations, it would be very hard and performance heavy.
+         * 
+         * But with machine learning, you can setup an algorithm to help you solving this problem.  You again have target
+         *     data and known outcomes to use when finding the patterns
+        */
 
         System.out.println("--Verify how many palindromes are expected to be generated--");
 

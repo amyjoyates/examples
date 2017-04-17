@@ -10,6 +10,7 @@ public class Part10and1 {
     {
         // References researched when writing this class and methods
         // A. StackOverflow - had to look up how recursion worked as I figured I might need it
+        // B. http://introcs.cs.princeton.edu/java/23recursion/
         
         // Write a program to generate all possible strings using ‘0’ and ‘1’ for a given width w
 
@@ -22,16 +23,18 @@ public class Part10and1 {
         Assert.assertEquals(generateStrings(3), 8);
         Assert.assertEquals(generateStrings(5), 32);
 
-        // 2) You realize that the number of strings to be very large as w increases and you are asked to write test cases that are fast and reasonably validate without testing for each and every string. What would you do?
-        // Testing Various Scenarios - some won't compile in this program, so commented them out
-        // A. Verify 0 width
-        // B. Verify Negative width
-        // C. Verify Empty
-        // D. Verify Max Width - Cannot run this with the actual max width, as it would either run out of memory, or take too long to run, so for this I used a smaller number
-        //    For D), we could also test a formula being created, we could write code to print out what the formula would be and compare it to the known formula
-        // E. Verify Min Width
-        // F. Verify Happy Path
-        // G. Verify some negative values
+        /*
+         * 2) You realize that the number of strings to be very large as w increases and you are asked to write test cases that are fast and reasonably validate without testing for each and every string. What would you do?
+         * Standard Type of Test Cases:
+         * A. Verify 0 width
+         * B. Verify Negative width
+         * C. Verify Empty
+         * D. Verify Max Width - Cannot run this with the actual max width, as it would either run out of memory, or take too long to run, so for this I used a smaller number
+         *    D.  Since this is an area that could be a performance nightmare, machine learning libraries could be used to predict outcomes
+         * E. Verify Min Width
+         * F. Verify Happy Path
+         * G. Verify some negative values
+        */
 
         Assert.assertEquals(generateStrings(0), 1);     //A. This returns 1 - probably not right
         //Assert.assertEquals(generateStrings(-1), 1);  //B: Will throw an error
@@ -43,9 +46,10 @@ public class Part10and1 {
         // Assert.assertEquals(generateStrings(''), 1); // G.  Verify that negative tests
         Assert.assertNotEquals(generateStrings(3), 9);  // G. Verify 2^3 is NOT 9
 
-        // 3) For a width w, how many strings are expected to be generated?
-        //    Using a Math equation where x = 2^w (Java Math.pow(x, n)) you can figure out how many combinations you should get
-        //      Here we have a method that prints out the number of combinations both in int and as a double - to show where int has a max value
+        /* 3) For a width w, how many strings are expected to be generated?
+         * Using a Math equation where x = 2^w (Java Math.pow(x, n)) you can figure out how many combinations you should get
+         * A. Here we have a method that prints out the number of combinations both in int and as a double - to show where int has a max value
+        */
         possibleCombinations(1);
         possibleCombinations(8);
         possibleCombinations(16);
